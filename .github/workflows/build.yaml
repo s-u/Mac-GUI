@@ -15,7 +15,7 @@ jobs:
         r-version: [ release, devel ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install R
         uses: s-u/R-actions/install@v2
@@ -43,7 +43,7 @@ jobs:
           hdiutil create -srcfolder R-GUI-build R-GUI-build-${{ matrix.os }}-${{ matrix.r-version }}.dmg
 
       - name: Upload build results
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v7
         with:
           path: R-GUI-build-${{ matrix.os }}-${{ matrix.r-version }}.dmg
           name: R-GUI-build-${{ matrix.os }}-${{ matrix.r-version }}
